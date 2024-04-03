@@ -1,29 +1,20 @@
-# Create T3 App
-
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
-
-## What's next? How do I make an app with this?
-
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
-
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
-
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
-
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+# About Project
+This is a cab system in which it calculates the shoetest path to reach the required position using Dijsktra algorithm.
+# Tech-Stack
+1. Trpc
+2. Typescript
+3. Tailwind
+4. pnpm
+5. Flowbite
+6. Emailjs
+7. Mongodb
+# Functions
+1. This Application shows the location in a map. 
+2. shows the nearest cab in the location.
+3. Select the nearest and cheapest cab when given source and destination.
+4. Give the shortest path to destination.
+5. Sends Email notification after booking.
+# How to run
+1. `pnpm install`
+2. `pnpm run dev`
+Note:Use a mongodb URL in the env database URL.

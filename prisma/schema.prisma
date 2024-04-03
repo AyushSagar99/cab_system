@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+enum RideStatus {
+    REQUESTED
+    ACCEPTED
+    REJECTED
+    CANCELLED
+    COMPLETED
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
+}
+model Cab{
+    id        String @id @default(auto()) @map("_id") @db.ObjectId
+    price_per_minute Float
+    startingPointName String 
+    startingPoint Location @relation(fields: [startingPointName], references: [name])
+    rides Ride[]
+    
+}
+
+model Location {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    name String @unique
+    edgesAsSource      Edge[]    @relation("SourceLocation")
+    edgesAsTarget      Edge[]    @relation("TargetLocation")
+    ridesAsSource      Ride[]    @relation("SourceLocationRide")
+    ridesAsTarget      Ride[]    @relation("TargetLocationRide")
+    cabs Cab[]
+}
+model Edge{
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  price        Float
+  sourceLocationId  String?   
+  targetLocationId  String?   
+  sourceLocation    Location? @relation(name: "SourceLocation", fields: [sourceLocationId], references: [name])
+  targetLocation    Location? @relation(name: "TargetLocation", fields: [targetLocationId], references: [name])
+  
+}
+
+model User {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    email String @unique
+    rides Ride[]
+}
+
+model Ride {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    status RideStatus @default(REQUESTED)
+    totalCost Float?
+    startTime DateTime?
+    endTime DateTime?
+    userId String? @db.ObjectId
+    user User? @relation(fields: [userId], references: [id])
+    cabId String? @db.ObjectId
+    cab Cab? @relation(fields: [cabId], references: [id])
+    sourceLocationName  String?
+    targetLocationName  String?
+    rideSourceLocation    Location? @relation(name: "SourceLocationRide", fields: [sourceLocationName], references: [name])
+    rideTargetLocation    Location? @relation(name: "TargetLocationRide", fields: [targetLocationName], references: [name])
+}

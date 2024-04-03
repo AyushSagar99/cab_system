@@ -117,9 +117,9 @@ export function RidesOptionModal({rides,openModal,setOpenModal,destination,sourc
          
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => setOpenModal(false)}>I accept</Button>
+          {/* <Button onClick={() => setOpenModal(false)}>I accept</Button> */}
           <Button color="gray" onClick={() => setOpenModal(false)}>
-            Decline
+            CLOSE
           </Button>
         </Modal.Footer>
       </Modal>

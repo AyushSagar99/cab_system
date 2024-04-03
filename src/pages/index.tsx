@@ -69,7 +69,7 @@ export function RidesOptionModal({rides,openModal,setOpenModal,destination,sourc
 
   return (
     <>
-      <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>
+      <Button onClick={() => setOpenModal(true)}>Current Ride</Button>
       <Modal show={openModal} onClose={() => setOpenModal(false)}>
       <Modal.Header>Choose Your Ride </Modal.Header>
         <Modal.Body>

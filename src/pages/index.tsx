@@ -185,7 +185,7 @@ export default function App(): JSX.Element {
         <title>Home Page</title>
       </Head>
      
-          <Button className="absolute top-0 right-0 p-1.5 m-2 w-32" onClick={() => setOpenModal(true)}>Rides</Button>
+          {/* <Button className="absolute top-0 right-0 p-1.5 m-2 w-32" onClick={() => setOpenModal(true)}>Rides</Button> */}
       <Modal show={openModal} onClose={() => setOpenModal(false)} className=" " size={"7xl"}> 
         <Modal.Header>Ride History</Modal.Header>
         <Modal.Body><div className="flex flex-col bg-white m-auto p-auto">
